@@ -9,14 +9,14 @@ class AdminUserSeeder extends Seeder
 {
     public function run(): void
     {
-        // Clear existing admin (using phone_e164 column)
-        User::where('phone_e164', '9876543210')->forceDelete();
+        // Clear existing admin (using phone_e164 column with +91 prefix)
+        User::where('phone_e164', '+919876543210')->forceDelete();
 
         // Create admin user
         $admin = User::create([
             'name' => 'Admin',
             'email' => 'admin@rahenoor.com',
-            'phone_e164' => '9876543210',
+            'phone_e164' => '+919876543210',  // Must include +91 prefix!
             'password' => bcrypt('admin123'),
             'is_admin' => true,
             'phone_verified_at' => now(),

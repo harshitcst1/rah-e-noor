@@ -37,7 +37,7 @@ Route::post('/register/complete', [RegistrationController::class, 'complete']);
 // Login flow (2-step: start OTP → verify)
 Route::post('/login/start', [LoginController::class, 'start']);
 Route::post('/login/resend', [LoginController::class, 'resend']);
-Route::post('/login/verify', [LoginController::class, 'verify']);
+Route::post('/login/verify', [LoginController::class, 'verifyApi']);
 
 // Password-based login fallback (if OTP fails)
 Route::post('/login/password', [LoginController::class, 'passwordLogin']);
